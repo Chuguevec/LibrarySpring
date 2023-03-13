@@ -5,13 +5,14 @@
     <title>Читатели</title>
 </head>
 <body>
+<h2>Список читателей</h2>
 <div th:each="person : ${people}">
-    <a th:href="@{/people/{id}(id=${person.getId()})}" th:text="${person.getName()}">user</a>
+    <a th:href="@{/people/{id}(id=${person.getId()})}" th:text="${person.getName() + ', ' + person.getAge()}">user</a>
 </div>
 <br>
 <hr>
 <form th:method="GET" th:action="@{/people/new}">
-    <input type="submit" value="Create Person">
+    <input type="submit" value="Добавить человека">
 </form>
 </body>
 </html>

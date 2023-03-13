@@ -1,14 +1,22 @@
+<!DOCTYPE html>
 <html>
-<body>
-<h2>Welcome to Library</h2>
+<head>
+    <meta charset="UTF-8">
+    <title>Library</title>
+</head>
 
+<body>
+<h2>Library</h2>
+
+<p>
 <form method="GET" action="/people">
-    <input type="submit" value="Readers">
+    <input type="submit" value="People">
 </form>
-<br>
+
 <form method="GET" action="/book">
-    <input type="submit" value="Books">
+<input type="submit" value="Books">
 </form>
+</p>
 
 </body>
 </html>

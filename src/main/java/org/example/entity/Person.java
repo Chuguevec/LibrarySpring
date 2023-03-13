@@ -1,9 +1,21 @@
 package org.example.entity;
 
+import java.util.List;
+
 public class Person {
    private Integer id;
    private String name;
    private Integer age;
+
+   private List<Book> books;
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
+    }
 
     public Integer getId() {
         return id;

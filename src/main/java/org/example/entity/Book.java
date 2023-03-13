@@ -3,9 +3,9 @@ package org.example.entity;
 public class Book {
     private Integer id;
     private String name;
-    private Person person;
-    private Author author;
+    private String author;
     private Short year;
+    private Integer personId;
 
     public Integer getId() {
         return id;
@@ -23,19 +23,11 @@ public class Book {
         this.name = name;
     }
 
-    public Person getPerson() {
-        return person;
-    }
-
-    public void setPerson(Person person) {
-        this.person = person;
-    }
-
-    public Author getAuthor() {
+    public String getAuthor() {
         return author;
     }
 
-    public void setAuthor(Author author) {
+    public void setAuthor(String author) {
         this.author = author;
     }
 
@@ -45,5 +37,13 @@ public class Book {
 
     public void setYear(Short year) {
         this.year = year;
+    }
+
+    public Integer getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(Integer personId) {
+        this.personId = personId;
     }
 }
