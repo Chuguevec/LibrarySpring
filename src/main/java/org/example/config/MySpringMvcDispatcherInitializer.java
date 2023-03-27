@@ -1,13 +1,12 @@
 package org.example.config;
 
+import jakarta.servlet.DispatcherType;
+import jakarta.servlet.FilterRegistration;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
-
-import javax.servlet.DispatcherType;
-import javax.servlet.FilterRegistration;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
 import java.util.EnumSet;
 
 public class MySpringMvcDispatcherInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
@@ -19,9 +18,11 @@ public class MySpringMvcDispatcherInitializer extends AbstractAnnotationConfigDi
         return new Class[] {SpringConfig.class};
     }
 
+    @Override
     protected String[] getServletMappings() {
         return new String[] {"/"};
     }
+
     @Override
     public void onStartup(ServletContext aServletContext) throws ServletException {
         super.onStartup(aServletContext);

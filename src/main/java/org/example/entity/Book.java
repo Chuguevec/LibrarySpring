@@ -1,11 +1,30 @@
 package org.example.entity;
 
+import jakarta.persistence.*;
+
+import java.time.LocalDate;
+
+@Entity
+@Table(name = "book")
 public class Book {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private String author;
     private Short year;
-    private Integer personId;
+
+    @Column(name = "rented_date")
+    @Temporal(TemporalType.DATE)
+    private LocalDate rentedDate;
+
+    @ManyToOne
+    @JoinColumn(name = "person_id", referencedColumnName = "id")
+    private Person person;
+
+    @Transient
+    private boolean expired;
 
     public Integer getId() {
         return id;
@@ -39,11 +58,27 @@ public class Book {
         this.year = year;
     }
 
-    public Integer getPersonId() {
-        return personId;
+    public Person getPerson() {
+        return person;
     }
 
-    public void setPersonId(Integer personId) {
-        this.personId = personId;
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
+    public LocalDate getRentedDate() {
+        return rentedDate;
+    }
+
+    public void setRentedDate(LocalDate rentedDate) {
+        this.rentedDate = rentedDate;
+    }
+
+    public boolean isExpired() {
+        return expired;
+    }
+
+    public void setExpired(boolean expired) {
+        this.expired = expired;
     }
 }

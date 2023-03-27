@@ -11,8 +11,11 @@
     <p>У читателя нет ни одной книги</p>
 </div>
 <div th:unless="${person.getBooks().isEmpty()}">
+    <hr>
+    <p>Книги: </p>
     <div th:each="book : ${person.getBooks()}">
         <a th:href="@{/book/{id}(id=${book.getId()})}" th:text="${book.getName()}">book</a>
+        <p th:text= "${book.isExpired()}"> expired</p>
     </div>
 </div>
 

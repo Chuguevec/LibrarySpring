@@ -1,12 +1,19 @@
 package org.example.entity;
 
+import jakarta.persistence.*;
+
 import java.util.List;
 
+@Entity
+@Table(name = "person")
 public class Person {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
    private Integer id;
    private String name;
    private Integer age;
 
+   @OneToMany(mappedBy = "person")
    private List<Book> books;
 
     public List<Book> getBooks() {
